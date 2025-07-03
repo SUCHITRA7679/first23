@@ -1,0 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+.row{
+    display: flex;
+    gap:20px;
+}
+.card{
+    border:2px solid black;
+    width: 300px;
+    padding:20px;
+    background:cadetblue;
+}
