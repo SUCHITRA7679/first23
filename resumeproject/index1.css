@@ -35,7 +35,7 @@ footer {
   margin-top: 20px;
 }
 .projects li {
-  margin-bottom: 10px; /* Adds vertical space between items */
-  line-height: 1.6;    /* Increases spacing within each line if it wraps */
+  margin-bottom: 10px; 
+  line-height: 1.6;    
 }
 
