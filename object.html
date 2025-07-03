@@ -4,10 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .card{
+           
+            width:300px;
+            padding:20px;
+            background: #f9f9f9;
+            border-radius:10px;
+            text-align: center;
+            margin:20px auto;
+            box-shadow: 0 0 10px #ccc;
+        }
+        .card h2{
+            margin:0;
+        }
+        .card p{
+            margin:5px;
+        }
+        #profileCard{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: center;
+        }
+        #profileCard .card{
+            margin:10px;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        
-    </div>
+    <div  id="profileCard"></div>
+    <Script>
+        const users=[{
+            name:"Rohit",
+            age:38,
+            profession:"cricketer",
+            email:"rohit@gmail.com"
+        },
+        {
+        name: "Reema Khan",
+        age: 28,
+        profession: "Designer",
+        email: "reema@example.com"
+      },
+      {
+        name: "Arjun Patel",
+        age: 32,
+        profession: "Developer",
+        email: "arjun@example.com"
+      },
+      {
+        name: "Sneha Rao",
+        age: 26,
+        profession: "Photographer",
+        email: "sneha@example.com"
+      },
+      {
+        name: "Ram",
+        age: 29,
+        profession: "Photographer",
+        email: "sneha@example.com"
+      }
+    ]
+        function renderProfile(userObj){
+          const card=document.createElement("div");
+          card.className="card";
+          card.innerHTML=`
+          <h2>${userObj.name}</h2>
+          <p>Age: ${userObj.age}</p>
+          <p>Profession: ${userObj.profession}</p>
+          <p>Email: ${userObj.email}</p>`;
+          return card;
+        }
+        function renderProfiles(usersArray){
+            const container=document.getElementById("profileCard");
+            usersArray.forEach(user=>{
+                const cardE1=renderProfile(user);
+                container.appendChild(cardE1);
+            })
+        }
+        renderProfiles(users);
+       
+    </Script>
 </body>
 </html>
