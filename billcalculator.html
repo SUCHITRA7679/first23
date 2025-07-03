@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tip Calculator</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 40px; }
+    input { padding: 10px; width: 200px; margin: 10px; }
+    button { padding: 10px 20px; }
+    p { font-size: 18px; color:blue; }
+  </style>
+</head>
+<body>
+
+  <h2>Bill Tip Calculator</h2>
+  <input type="number" id="bill" placeholder="Bill Amount">
+  <input type="number" id="tipPercent" placeholder="Tip %">
+  <br>
+  <button onclick="calculateTip()">Calculate</button>
+  <p id="result"></p>
+
+  <script>
+    function calculateTipAmount(amount, tip) {
+      return (amount * tip) / 100;
+    }
+
+    function calculateTip() {
+      let bill = Number(document.getElementById("bill").value);
+      let tipPercent = Number(document.getElementById("tipPercent").value);
+
+      let tip = calculateTipAmount(bill, tipPercent);
+      let total = bill + tip;
+
+      document.getElementById("result").innerText = 
+        `Tip: $${tip.toFixed(2)} | Total: $${total.toFixed(2)}`;
+    }
+  </script>
+
+</body>
+</html>
