@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    input { padding: 10px; width: 200px; margin-bottom: 10px; }
+    .product { padding: 8px; background: #eee; margin: 5px 0; }
+  </style>
+</head>
+<body>
+
+<h3>Search Products</h3>
+<input type="text" id="searchBox" placeholder="Type to search...">
+<div id="productList"></div>
+
+<script>
+  const products = ["Apple", "Banana", "Mango", "Orange", "Avocado"];
+
+  const listDiv = document.getElementById("productList");
+  const input = document.getElementById("searchBox");
+
+  function displayProducts(filtered) {
+    listDiv.innerHTML = "";
+    filtered.forEach(item => {
+      let div = document.createElement("div");
+      div.className = "product";
+      div.innerText = item;
+      listDiv.appendChild(div);
+    });
+  } 
+
+  input.addEventListener("input", function () {
+    const value = input.value.toLowerCase();
+    const filtered = products.filter(item => item.toLowerCase().includes(value));
+    displayProducts(filtered);
+  });
+
+  displayProducts(products); // initial load
+</script>
+
+</body>
+</html>

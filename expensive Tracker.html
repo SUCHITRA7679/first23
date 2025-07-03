@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense | Tracker</title>
+      <style>
+    input, button { padding: 10px; margin: 5px; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 6px; background: #eee; margin: 5px 0; }
+  </style>
+</head>
+<body>
+    <h3>Expense Tracker</h3>
+    <input type="number" id="amount" placeholder="Enter expense">
+    <button onclick="addExpense()">Add</button>
+    <ul id="expenseList"></ul>
+    <p>Total.$<span id="total">0</span></p>
+    <script>
+        let expenses=[];
+        function addExpense(){
+            let amt=Number(document.getElementById("amount").value);
+            if(amt>0){
+                expenses.push(amt);
+               updateUI();
+            }
+            document.getElementById("amount").value="";
+        }
+        function updateUI(){
+            const list=document.getElementById("expenseList");
+            list.innerHTML="";
+            expenses.forEach(exp=>{
+                let li=document.createElement("li");
+                li.innerText="$"+exp;
+                list.appendChild(li)
+            });
+            let total=expenses.reduce((sum,val)=>sum+val,0);
+            document.getElementById("total").innerText=total;
+        }
+
+    </script>
+</body>
+</html>
